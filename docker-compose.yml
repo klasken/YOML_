@@ -1,0 +1,41 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: DockerFile
+    container_name: backend_container
+    env_file: .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql_db
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: sh -c "npm install && sleep 10 && npm start"
+
+  mysql_db:
+    image: mysql:8
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mvp_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/schema.sql:/docker-entrypoint-initdb.d/init.sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    depends_on:
+      - mysql_db
+    ports:
+      - "8084:80"
+    environment:
+      PMA_HOST: mysql_db
+      PMA_PORT: 3306
+
+volumes:
+  mysql_data:

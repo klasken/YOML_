@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.16.0",
+    "serve-favicon": "^2.5.1"
+  },
+  "name": "b-tbm-100-lil-1-1-yowl-4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "nodemon backend/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EpitechBachelorPromo2028/B-TBM-100-LIL-1-1-yowl-4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EpitechBachelorPromo2028/B-TBM-100-LIL-1-1-yowl-4/issues"
+  },
+  "homepage": "https://github.com/EpitechBachelorPromo2028/B-TBM-100-LIL-1-1-yowl-4#readme",
+  "description": "",
+  "devDependencies": {
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.11"
+  }
+}
